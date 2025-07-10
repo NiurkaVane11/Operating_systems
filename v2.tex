@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{setspace}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\renewcommand{\maketitle}{
+    \begin{center}
+        {\LARGE \bfseries Tarea Asincrónica: IPC y Sockets \par}
+        \vspace{0.5cm}
+        {\large \textbf{Niurka Vanesa Yupanqui} \par}
+        {\small  10 de julio de 2025 \par}
+        \vspace{1cm}
+        \hrule height 0.8pt
+        \vspace{1cm}
+    \end{center}
+}
+
+\begin{document}
+\onehalfspacing
+\pagestyle{empty}
+\maketitle
+
+Durante esta tarea asincrónica sobre IPC y sockets, trabajé con cuatro programas clave que me ayudaron a entender cómo se comunican los procesos y cómo funciona la concurrencia en los sistemas operativos.
+
+Primero, probé el archivo \texttt{fork.c}, que crea un proceso hijo usando la función \texttt{fork()}. Al ejecutarlo, noté que tanto el proceso padre como el hijo corrían el mismo código, pero con diferentes identificadores. Esto me ayudó a ver cómo el sistema puede hacer que dos procesos trabajen al mismo tiempo de forma independiente.
+
+Después usé \texttt{sumPar.c}, que realiza una suma de forma paralela usando varios procesos. Comparado con una suma secuencial, este método fue más rápido, lo cual muestra que dividir el trabajo entre procesos puede hacer que los programas funcionen mejor cuando se trata de tareas repetitivas o pesadas.
+
+Luego ejecuté \texttt{multiSharVar.c}, donde dos hilos aumentan una misma variable entera sin sincronización. Al hacerlo varias veces, el resultado cambiaba, lo cual me hizo darme cuenta de que los hilos pueden pisarse entre sí si no se controla el acceso a los datos compartidos. Este experimento me mostró claramente qué es una condición de carrera y por qué es importante evitarla.
+
+Finalmente, trabajé con \texttt{multiEcho.c}, donde dos hilos copian el contenido de un archivo a otro utilizando una misma variable tipo \texttt{char}. Aunque parecía funcionar, a veces salían errores o comportamientos raros. Esto me hizo pensar en cómo los hilos, si no están bien organizados, pueden generar errores similares a los que ocurren con sockets si no se manejan bien.
+
+Esta práctica me ayudó a comprender mejor cómo se relacionan los procesos, los hilos y la
+comunicación dentro de un sistema. Al ejecutar y analizar cada programa, reforcé lo aprendido en clase y pude observar con más claridad cómo funcionan internamente estos mecanismos en un sistema operativo real.
+
+
+\end{document}
